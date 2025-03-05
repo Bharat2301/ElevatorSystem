@@ -1,0 +1,73 @@
+html {
+	box-sizing: border-box;
+}
+*, *::before, *::after {
+	box-sizing: inherit;
+}
+body{
+	height: 98vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Styles */
+h1{
+	color: black;
+	text-align: center;
+    margin-bottom: 20px;
+}
+.container{
+	width: 100%;
+	max-width: 1440px;
+	margin: 0 auto;
+
+}
+.numberWrapper{
+	display: flex ;
+	flex-direction: column;
+	gap: 16px;
+	align-items: center;
+	justify-content: center;
+	font-weight: 700;
+}
+.box-main{
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-width: 800px;
+    margin: 0 auto;
+}
+.box-row{
+	display: grid;
+	grid-template-columns: repeat(7, 1fr); 
+	grid-template-rows: auto;
+}
+.box{
+	border: 1px solid rgb(201, 201, 201);
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.btn{
+font-size: 16px;
+font-weight: 700;
+line-height: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+background-color: rgb(101, 237, 101);
+padding: 8px 18px;
+border-radius: 8px;
+margin: 4px 0px;
+margin-left: 8px;
+cursor: pointer;
+}
+
+.svgwraper{
+	width: 100%;
+	max-width: 40px;
+	height: 40px;	
+}

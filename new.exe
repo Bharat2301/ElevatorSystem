@@ -1,0 +1,56 @@
+his JavaScript code is implementing a simple elevator system with the following functionality:
+
+Elevator Movement:
+
+The script simulates multiple elevators (liftIndex from 0 to 4) moving between floors in response to user input.
+Button Click Handling:
+
+When a user clicks a button associated with a floor (e.g., btn-2 for the 2nd floor), the system finds the nearest available lift, sends it to the requested floor, and updates the status of the button to indicate "Waiting" and disables it. The elevator then moves to that floor.
+Queue System:
+
+If all elevators are moving when a button is pressed, the request is added to a queue (queueFloors) to be processed later when an elevator becomes free.
+Lift Status & Arrival Time:
+
+The system calculates the nearest elevator to the requested floor and estimates the arrival time based on the distance. This is shown on the UI with a time label (e.g., "5 Sec").
+Elevator State:
+
+The lift moves to the requested floor, changing its color during the process to indicate it's in motion (red) and then back to green once it arrives at the destination.
+The button's text changes from "Call" to "Waiting" and finally to "Arrived" once the lift reaches the destination.
+Sound:
+
+A sound is played every time an elevator reaches its destination.
+Breakdown of Key Functions:
+findMinDistance(currentFloor, allLiftStatus):
+
+Finds the nearest available elevator to a given floor.
+It checks the allLiftStatus array (which tracks the status of each lift, including whether it's moving or not) and calculates the distance from the current floor to the floor of each lift.
+Returns the smallest distance and the index of the lift that is closest.
+isLiftAlreadyThere(allLiftStatus, calledFloor):
+
+Checks if there is already an elevator at the requested floor.
+If there's a lift already on the same floor, it returns true.
+allLiftsMoving(allLiftStatus):
+
+Checks if all lifts are currently moving. It returns true if all lifts are moving.
+playSound():
+
+Plays a lift sound (./lift-sound.mp3) when an elevator arrives at a floor.
+LiftStatus(clickedFloor, button):
+
+Handles the process of calling a lift to a specific floor.
+Finds the nearest available lift, displays an estimated arrival time, and triggers the elevator to move to the requested floor.
+MoveLift(clickedFloor, pos, button):
+
+Moves the lift to the requested floor.
+Updates the lift’s status, color (changes to red while moving and back to green when it reaches the floor), and the button’s text (changes to "Waiting" when pressed, then to "Arrived" when the lift reaches the destination).
+After the lift completes its journey, the lift’s state is set back to not moving, and if there are any pending requests in the queue, the next request is processed.
+Event Listeners for Buttons:
+The script selects all elements with the class .btn (representing floor call buttons) and adds a click event listener to each button.
+When a button is clicked, the requested floor (clickedFloor) is extracted from the button's ID (e.g., btn-2 for floor 2).
+If all lifts are currently moving, the request is added to the queue.
+If no elevator is already at the requested floor, the button's state is updated, and the LiftStatus() function is called to send the nearest lift to that floor.
+Summary:
+The code simulates a simple elevator system with a queue mechanism.
+It finds the nearest available lift to the requested floor, moves the lift, and updates the UI elements accordingly (button color, elevator color, estimated time, etc.).
+It plays a sound when the lift arrives at the requested floor.
+The system manages elevator movement in parallel, with a queue for handling multiple requests when all lifts are busy.
